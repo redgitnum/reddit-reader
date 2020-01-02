@@ -10,7 +10,20 @@ export const putEmbed = (media) => {
 
 export const sortSub = (e) => {
     let subName = 'get' + e.target.innerText;
-    return {sub: subName}
+    let root = document.getElementById('root')
+    root.style.overflow = 'auto';
+    root.style.paddingRight = '0'
+    return {
+        sub: subName,
+        postVisible: false,
+        comments: [],
+        post: '',
+        postId: '',
+        data: '',
+        last: '',
+        timer: true,
+        loading: true
+    }
 }
 
 export const overflowHide = (visible) => {

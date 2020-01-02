@@ -30,7 +30,6 @@ html, body {
 }
 
 .title {
-    font-size: 20px;
     margin: auto 10px;
     flex: 0 0 auto;
 }
@@ -72,10 +71,6 @@ html, body {
     z-index: 2;
 }
 
-.sortBtn:hover .sortBtnItems{
-    display: block;
-}
-
 .sortBtnItems * {
     padding: 10px 20px 10px 10px;
     min-width: 110px;
@@ -108,7 +103,7 @@ html, body {
     border: 2px solid rgb(175, 175, 175);
 }
 
-.votes {
+.votes, .postSingleVotes {
     flex: 1 60px;
     min-width: 60px;
     background: rgb(40, 40, 40);
@@ -121,7 +116,7 @@ html, body {
 }
 
 #modalTop {
-    transition: 0.3s;
+    transition: opacity 0.3s, background 0.3s, color 0.3s;
     opacity: 0;
     border-radius: 4px;
     text-decoration: none;
@@ -129,8 +124,8 @@ html, body {
     padding: 8px 10px;
     background: rgb(100, 100, 100);
     position: fixed;
-    left: 56px;
-    bottom: 42px;
+    left: 4.7vw;
+    bottom: 3vh;
     z-index: 4;
 }
 #modalTop:hover {
@@ -226,10 +221,9 @@ html, body {
 
 .postModalBody {
     display: flex;
-    width: 90%;
-    min-width: 690px;
+    width: 90vw;
     min-height: 90%;
-    margin: 20px 0 20px 50px;
+    margin: 20px auto 20px auto;
     background: rgb(20, 20, 20);
     border: 1px solid rgba(250, 250, 250, 0.5);
     border-radius: 5px;
@@ -240,7 +234,6 @@ html, body {
     display: flex;
     flex-direction: column;
     padding: 10px 15px;
-    min-width: 500px;
 }
 
 .postModalHeader {
@@ -249,11 +242,19 @@ html, body {
     font-size: 12px;
     color: rgb(150, 150, 150);
     margin-bottom: 10px;
+
+}
+.postModalHeader:first-child {
+    padding-right: 20px;
+}
+
+.postModalInfo {
+    width: 75%;
 }
 
 .postModalTitle {
     display: block;
-    width: calc(100% - 100px);
+    width: 82%;
     text-overflow: ellipsis;
     overflow: hidden;
     color: rgb(206, 206, 206);
@@ -263,16 +264,17 @@ html, body {
 
 .postModalClose {
     position: absolute;
-    top: 0;
-    right: 10px;
-    background: rgb(150, 150, 150);
+    right: 5px;
+    top: -10px;
+    background: transparent;
+    color: rgb(206, 206, 206);
     border: none;
     padding: 2px 15px;
     font-size: 20px;
-    border-radius: 4px;
+    border-radius: 0 3px 0 3px;
 }
 .postModalClose:hover {
-    background: rgb(206, 206, 206);
+    background: rgb(50, 50, 50);
     
 }
 
@@ -280,6 +282,7 @@ html, body {
     padding: 15px;
     color: rgb(175, 175, 175);
     text-align: left;
+    word-wrap: break-all;
 }
 
 .postModalMedia {
@@ -288,6 +291,12 @@ html, body {
     color: rgb(175, 175, 175);
     text-align: center;
     max-width: 600px;
+    width: 50%;
+    word-wrap: break-all;
+}
+.postModalMedia > iframe {
+    width: 100%;
+    height: 28vw;
 }
 
 .postModalFooter {
@@ -335,7 +344,7 @@ html, body {
 }
 
 .postSingleText{
-    word-break: break-word;
+    word-break: break-all;
     white-space: pre-wrap;
 
 }
@@ -392,3 +401,32 @@ a {
 }
 
 /* ----------------------------------- */
+
+@media (max-width: 800px) {
+    .postModalSingleComment .postModalSingleComment{
+        position: relative;
+        margin: 0 0 0 0px;
+        padding: 10px 0 0 3px;
+        border-left: 2px solid rgba(250, 250, 250, 0.3);
+    }
+    .postSingleVotes {
+        flex: none;
+        min-width: 0;
+        position: absolute;
+        right: 5.5vw;
+        top: 50px;
+        background: rgb(40, 40, 40);
+        box-sizing: border-box;
+        border-radius: 5px;
+        text-align: center;
+        padding: 5px;
+        font-size: 17px;
+        margin: 0;
+    }
+    .postModalSingleComment{
+        font-size: 12px;
+    }
+    .postModalTitle {
+        font-size: 15px;
+    }
+}

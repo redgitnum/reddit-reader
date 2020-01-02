@@ -23,8 +23,7 @@ class App extends React.Component {
   }
 
 sortSub = (e) => {
-  this.setState(utils.sortSub(e));
-  this.changeVisibility()
+  this.setState(utils.sortSub(e)); 
 }
 
 changeVisibility = () => {

@@ -24,8 +24,8 @@ const PostModal = (props) => {
         <div id="postModal" className="postModal" style={{display: props.postVisible ? 'block' : 'none'}}>
             {props.post && 
             <div className="postModalBody">
-                <div className="votes">
-                    {props.post[0].score > 1000 ? (props.post[0].score/1000).toFixed(2) + 'k': props.post[0].score}
+                <div className="postSingleVotes">
+                    Score<br></br>{props.post[0].score > 1000 ? (props.post[0].score/1000).toFixed(2) + 'k': props.post[0].score}
                 </div>
                 <div className="postModalContent">
                     <Header 
